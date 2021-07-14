@@ -1,5 +1,8 @@
-// jest-dom adds custom jest matchers for asserting on DOM nodes.
-// allows you to do things like:
-// expect(element).toHaveTextContent(/react/i)
-// learn more: https://github.com/testing-library/jest-dom
-import '@testing-library/jest-dom';
+import { render as rtlRender } from "@testing-library/react";
+
+export const render = (ui: React.ReactElement) => {
+  // Return renderer function with base options set
+  return {
+    ...rtlRender(ui),
+  };
+};
