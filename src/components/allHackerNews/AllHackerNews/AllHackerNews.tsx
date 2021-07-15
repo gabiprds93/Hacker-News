@@ -4,6 +4,7 @@ import { options } from "./AllHackerNews.helpers";
 import Header from "../../global/Header/Header";
 import Tabs from "../../global/Tabs/Tabs";
 import Dropdown from "../../global/Dropdown/Dropdown";
+import NewsList from "../../global/NewsList/NewsList";
 
 const AllHackerNews: React.FC<Props> = (props) => {
   return (
@@ -21,6 +22,8 @@ const AllHackerNews: React.FC<Props> = (props) => {
             options={options}
           />
         </div>
+
+        <NewsList />
       </main>
     </Styles>
   );

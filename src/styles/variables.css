@@ -1,9 +1,13 @@
 :root {
-  --palette-headerText: #3b3b3b;
-  --palette-shadow: rgba(0, 21, 41, 0.12);
-  --palette-backgroundTop: #ececec;
   --palette-white: #ffffff;
   --palette-activeTab: #1797ff;
+  --palette-shadow: rgba(0, 21, 41, 0.12);
+  --palette-backgroundTop: #ececec;
+  --palette-backgroundFav: #f5f5f5;
   --palette-tabText: #6a6a6a;
+  --palette-headerText: #3b3b3b;
+  --palette-infoText: #767676;
+  --palette-titleText: #6b6b6b;
   --palette-borderTab: #d6d6d6;
+  --palette-borderNewItem: rgba(151, 151, 151, 0.8);
 }
