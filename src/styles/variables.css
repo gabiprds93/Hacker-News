@@ -3,4 +3,7 @@
   --palette-shadow: rgba(0, 21, 41, 0.12);
   --palette-backgroundTop: #ececec;
   --palette-white: #ffffff;
+  --palette-activeTab: #1797ff;
+  --palette-tabText: #6a6a6a;
+  --palette-borderTab: #d6d6d6;
 }
