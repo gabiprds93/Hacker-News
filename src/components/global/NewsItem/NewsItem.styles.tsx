@@ -45,6 +45,10 @@ const NewItemStyled = styled.a<Props>`
       display: flex;
       justify-content: center;
       width: 64px;
+
+      &__icon {
+        cursor: pointer;
+      }
     }
   }
 `;

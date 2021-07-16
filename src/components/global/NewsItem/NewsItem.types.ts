@@ -3,7 +3,7 @@ import { News } from "../../../types/news.type";
 
 // Component Props
 export interface NewsItemProps {
-  newsItem?: News;
+  newsItem: News;
 }
 
 // Styled Component Props

@@ -1,19 +1,47 @@
+import { useState } from "react";
 import dayjs from "dayjs";
 
 import Styles from "./NewsItem.styles";
 import { NewsItemProps as Props } from "./NewsItem.types";
+import { News } from "../../../types/news.type";
+import { getLocalStorage } from "../../../utils/common.utils";
 
 import { ReactComponent as TimeSvg } from "../../../assets/images/time.svg";
 import { ReactComponent as HeartRegularSvg } from "../../../assets/images/heart-regular.svg";
+import { ReactComponent as HeartSolidSvg } from "../../../assets/images/heart-solid.svg";
 
 const NewsItem: React.FC<Props> = (props) => {
   const { newsItem } = props;
+  const { author, story_title, story_url, created_at, story_id } = newsItem;
+  const storedFavorites: News[] | undefined = getLocalStorage("favorites");
+  const findFavorite = storedFavorites?.find(
+    (favorite) => favorite.story_id === story_id
+  );
+  const [isFavorite, setIsFavorite] = useState(!!findFavorite);
 
-  const { author, story_title, story_url, created_at } = newsItem ?? {};
   const dateFormat = dayjs(created_at).format("YYYY-MM-D");
+  let favorites: News[] | undefined;
 
   const handleClick = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     event.preventDefault();
+    if (newsItem) {
+      const storedFavorites: News[] | undefined = getLocalStorage("favorites");
+
+      setIsFavorite((prev) => {
+        if (prev) {
+          favorites = storedFavorites?.filter(
+            (favorite) => favorite.story_id !== story_id
+          );
+        } else {
+          favorites = storedFavorites
+            ? storedFavorites.concat(newsItem)
+            : [newsItem];
+        }
+        return !prev;
+      });
+
+      localStorage.setItem("favorites", JSON.stringify(favorites));
+    }
   };
 
   return (
@@ -33,8 +61,8 @@ const NewsItem: React.FC<Props> = (props) => {
       </div>
 
       <div className="NewsItem__favorite">
-        <div onClick={(event) => handleClick(event)}>
-          <HeartRegularSvg />
+        <div onClick={handleClick} className="NewsItem__favorite__icon">
+          {isFavorite ? <HeartSolidSvg /> : <HeartRegularSvg />}
         </div>
       </div>
     </Styles>
