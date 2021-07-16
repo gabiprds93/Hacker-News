@@ -1,16 +1,20 @@
 import styled from "styled-components";
 
-import { NewItemStyledProps as Props } from "./NewItem.types";
+import { NewsItemStyledProps as Props } from "./NewsItem.types";
 
-const NewItemStyled = styled.div<Props>`
-  &.NewItem {
+const NewItemStyled = styled.a<Props>`
+  &.NewsItem {
     border-radius: 0.6rem;
     border: solid 1px var(--palette-borderNewItem);
     display: flex;
     justify-content: space-between;
+
+    &:hover {
+      opacity: 0.4;
+    }
   }
 
-  .NewItem {
+  .NewsItem {
     &__info {
       flex: 1;
       padding: 2.4rem;
