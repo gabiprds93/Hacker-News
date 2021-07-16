@@ -1,4 +1,4 @@
-import { useCallback, useRef } from "react";
+import { useCallback, useEffect, useRef } from "react";
 
 import Styles from "./NewsList.styles";
 import { NewsListProps as Props } from "./NewsList.types";
@@ -7,6 +7,7 @@ import { useFetchNews } from "../../../services/news/news.service.hooks";
 import { News } from "../../../types/news.type";
 
 const NewsList: React.FC<Props> = (props) => {
+  const { query } = props;
   const observer = useRef<IntersectionObserver>();
   const {
     data: newsData,
@@ -15,7 +16,8 @@ const NewsList: React.FC<Props> = (props) => {
     isFetchingNextPage,
     hasNextPage,
     fetchNextPage,
-  } = useFetchNews("angular");
+    refetch,
+  } = useFetchNews(query);
 
   const triggerRef = useCallback(
     (item) => {
@@ -44,6 +46,10 @@ const NewsList: React.FC<Props> = (props) => {
   }, [newsData]);
 
   const newsArray = getNewsArray();
+
+  useEffect(() => {
+    refetch();
+  }, [query, refetch]);
 
   return (
     <Styles className="NewsList">

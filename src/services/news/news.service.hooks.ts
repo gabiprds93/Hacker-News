@@ -7,7 +7,7 @@ export const useFetchNews = (query: any) => {
     "news",
     ({ pageParam }) => {
       return fetchNews({
-        query: query ?? "angular",
+        query,
         page: pageParam ?? 0,
       });
     },
