@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { DropdownProps } from "semantic-ui-react";
 
 import Styles from "./AllHackerNews.styles";
@@ -11,7 +11,9 @@ import NewsList from "../../global/NewsList/NewsList";
 
 const AllHackerNews: React.FC<Props> = (props) => {
   const defaultValue = options[0].value;
-  const [query, setQuery] = useState(defaultValue);
+  const storedQuery = localStorage.getItem("selectedQuery");
+  const selectedQuery = storedQuery ?? defaultValue;
+  const [query, setQuery] = useState(selectedQuery);
 
   const handleChange = (
     event: React.SyntheticEvent<HTMLElement, Event>,
@@ -19,6 +21,10 @@ const AllHackerNews: React.FC<Props> = (props) => {
   ) => {
     setQuery(data.value as string);
   };
+
+  useEffect(() => {
+    localStorage.setItem("selectedQuery", query);
+  }, [query]);
 
   return (
     <Styles className="AllHackerNews">
@@ -33,8 +39,8 @@ const AllHackerNews: React.FC<Props> = (props) => {
             fluid
             selection
             options={options}
+            value={query}
             onChange={handleChange}
-            defaultValue={defaultValue}
           />
         </div>
 

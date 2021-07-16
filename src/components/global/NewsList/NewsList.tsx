@@ -48,6 +48,7 @@ const NewsList: React.FC<Props> = (props) => {
   const newsArray = getNewsArray();
 
   useEffect(() => {
+    localStorage.setItem("selectedQuery", query);
     refetch();
   }, [query, refetch]);
 
