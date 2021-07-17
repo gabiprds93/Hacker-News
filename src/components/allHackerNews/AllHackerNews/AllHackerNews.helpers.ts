@@ -14,7 +14,7 @@ export const options = [
   {
     key: "React",
     text: "React",
-    value: "react",
+    value: "reactjs",
     image: {
       src: reactImage,
     },
@@ -22,7 +22,7 @@ export const options = [
   {
     key: "Vue",
     text: "Vue",
-    value: "vue",
+    value: "vuejs",
     image: {
       src: vueImage,
     },

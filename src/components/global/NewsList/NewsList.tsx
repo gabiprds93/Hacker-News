@@ -71,11 +71,13 @@ const NewsList: React.FC<Props> = (props) => {
         <>
           {isLoading ? <div>Loading news!</div> : null}
 
-          {isSuccess
-            ? newsArray?.map((newsItem, index) => {
+          {isSuccess ? (
+            <div className="NewsList__grid">
+              {newsArray?.map((newsItem, index) => {
                 return <NewsItem key={index} newsItem={newsItem} />;
-              })
-            : null}
+              })}
+            </div>
+          ) : null}
 
           <div ref={triggerRef}>
             {isFetchingNextPage ? "Loading more..." : ""}

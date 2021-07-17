@@ -48,6 +48,10 @@ const NewsItem: React.FC<Props> = (props) => {
     setIsFavorite(!!findFavorite);
   }, [favorites, objectID]);
 
+  if (!author || !story_title || !story_url || !created_at) {
+    return null;
+  }
+
   return (
     <Styles
       className="NewsItem"
