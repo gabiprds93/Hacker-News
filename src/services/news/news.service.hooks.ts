@@ -12,7 +12,7 @@ export const useFetchNews = (query: any) => {
       });
     },
     {
-      enabled: true,
+      enabled: false,
       getNextPageParam: (lastPage: any) => {
         const { page, nbPages } = lastPage;
 

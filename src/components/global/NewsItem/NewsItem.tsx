@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import dayjs from "dayjs";
 
 import Styles from "./NewsItem.styles";
 import { NewsItemProps as Props } from "./NewsItem.types";
 import { News } from "../../../types/news.type";
-import { getLocalStorage } from "../../../utils/common.utils";
+import useFavorites from "../../../contexts/favorites/favorites.hooks";
 
 import { ReactComponent as TimeSvg } from "../../../assets/images/time.svg";
 import { ReactComponent as HeartRegularSvg } from "../../../assets/images/heart-regular.svg";
@@ -12,37 +12,34 @@ import { ReactComponent as HeartSolidSvg } from "../../../assets/images/heart-so
 
 const NewsItem: React.FC<Props> = (props) => {
   const { newsItem } = props;
-  const { author, story_title, story_url, created_at, story_id } = newsItem;
-  const storedFavorites: News[] | undefined = getLocalStorage("favorites");
-  const findFavorite = storedFavorites?.find(
-    (favorite) => favorite.story_id === story_id
-  );
-  const [isFavorite, setIsFavorite] = useState(!!findFavorite);
+  const { favorites, setFavorites } = useFavorites();
+  const [isFavorite, setIsFavorite] = useState<boolean>();
 
+  const { author, story_title, story_url, created_at, objectID } = newsItem;
   const dateFormat = dayjs(created_at).format("YYYY-MM-D");
-  let favorites: News[] | undefined;
 
   const handleClick = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     event.preventDefault();
-    if (newsItem) {
-      const storedFavorites: News[] | undefined = getLocalStorage("favorites");
+    let favoriteNews: News[] | undefined;
 
-      setIsFavorite((prev) => {
-        if (prev) {
-          favorites = storedFavorites?.filter(
-            (favorite) => favorite.story_id !== story_id
-          );
-        } else {
-          favorites = storedFavorites
-            ? storedFavorites.concat(newsItem)
-            : [newsItem];
-        }
-        return !prev;
-      });
-
-      localStorage.setItem("favorites", JSON.stringify(favorites));
+    if (isFavorite) {
+      favoriteNews = favorites?.filter(
+        (favorite) => favorite.objectID !== objectID
+      );
+    } else {
+      favoriteNews = favorites.length ? favorites.concat(newsItem) : [newsItem];
     }
+
+    setFavorites(favoriteNews);
+    localStorage.setItem("favorites", JSON.stringify(favoriteNews));
   };
+
+  useEffect(() => {
+    const findFavorite = favorites?.find(
+      (favorite) => favorite.objectID === objectID
+    );
+    setIsFavorite(!!findFavorite);
+  }, [favorites, objectID]);
 
   return (
     <Styles

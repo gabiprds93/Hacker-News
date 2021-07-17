@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import AllHackerNews from "../pages/AllHackerNews.page";
 import FavoritesHackerNews from "../pages/FavoritesHackerNews.page";
+import FavoritesProvider from "../contexts/favorites/favorites.context";
 
 const Routes = () => {
   const queryClientRef = useRef<QueryClient>();
@@ -20,17 +21,19 @@ const Routes = () => {
 
   return (
     <QueryClientProvider client={queryClientRef.current}>
-      <Router>
-        <Switch>
-          <Route exact path="/">
-            <AllHackerNews />
-          </Route>
+      <FavoritesProvider>
+        <Router>
+          <Switch>
+            <Route exact path="/">
+              <AllHackerNews />
+            </Route>
 
-          <Route path="/favorites">
-            <FavoritesHackerNews />
-          </Route>
-        </Switch>
-      </Router>
+            <Route path="/favorites">
+              <FavoritesHackerNews />
+            </Route>
+          </Switch>
+        </Router>
+      </FavoritesProvider>
     </QueryClientProvider>
   );
 };

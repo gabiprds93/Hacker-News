@@ -1,8 +1,10 @@
 // Interfaces and types from component NewsList
+import { News } from "../../../types/news.type";
 
 // Component Props
 export interface NewsListProps {
-  query: string;
+  query?: string;
+  news?: News[] | undefined;
 }
 
 // Styled Component Props

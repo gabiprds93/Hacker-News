@@ -1,7 +1,7 @@
 // News entity types and interface
 
 export interface News {
-  story_id: number;
+  objectID: string;
   author: string;
   story_title: string;
   story_url: string;

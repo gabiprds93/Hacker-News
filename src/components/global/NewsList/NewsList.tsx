@@ -7,7 +7,7 @@ import { useFetchNews } from "../../../services/news/news.service.hooks";
 import { News } from "../../../types/news.type";
 
 const NewsList: React.FC<Props> = (props) => {
-  const { query } = props;
+  const { query, news } = props;
   const observer = useRef<IntersectionObserver>();
   const {
     data: newsData,
@@ -48,25 +48,37 @@ const NewsList: React.FC<Props> = (props) => {
   const newsArray = getNewsArray();
 
   useEffect(() => {
-    localStorage.setItem("selectedQuery", query);
-    refetch();
+    if (query) {
+      localStorage.setItem("selectedQuery", query);
+      refetch();
+    }
   }, [query, refetch]);
 
   return (
     <Styles className="NewsList">
-      {isSuccess
-        ? newsArray?.map((newsItem, index) => {
-            return <NewsItem key={index} newsItem={newsItem} />;
-          })
-        : null}
+      {!news ? (
+        <>
+          {isSuccess
+            ? newsArray?.map((newsItem, index) => {
+                return <NewsItem key={index} newsItem={newsItem} />;
+              })
+            : null}
 
-      <div ref={triggerRef}>{isFetchingNextPage ? "Loading more..." : ""}</div>
+          <div ref={triggerRef}>
+            {isFetchingNextPage ? "Loading more..." : ""}
+          </div>
 
-      {isLoading ? <div>Loading news!</div> : null}
+          {isLoading ? <div>Loading news!</div> : null}
 
-      {!hasNextPage && !isLoading ? (
-        <div>You have scrolled through all the new</div>
+          {!hasNextPage && !isLoading ? (
+            <div>You have scrolled through all the new</div>
+          ) : null}
+        </>
       ) : null}
+
+      {news?.map((newsItem, index) => {
+        return <NewsItem key={index} newsItem={newsItem} />;
+      })}
     </Styles>
   );
 };
