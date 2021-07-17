@@ -1,6 +1,6 @@
 # About Proyect
 
-In this project you can find millions of articles and comments related to the world of technology, filtering them by the following technologies:
+In this web application you can find millions of articles and comments related to the world of technology, filtering them by the following technologies:
 
 - Angular
 - ReactJs
@@ -8,8 +8,9 @@ In this project you can find millions of articles and comments related to the wo
 
 You can go directly to the news by clicking on each of them. You can also mark your favorites by clicking on the heart.
 
-React was used to build this project and [Hackers News public API](https://codigofacilito.com) is being consumed.
+React was used to build this project and [Hackers News public API](https://hn.algolia.com/api) is being consumed.
 
+You can test the web application in this [link](https://gparedes-hacker-news.netlify.app/) hosted on [Netlify](https://www.netlify.com/).
 
 # Getting Started with Create React App
 
