@@ -19,8 +19,7 @@
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^2.0.3",
     "styled-components": "^5.3.0",
-    "typescript": "^4.1.2",
-    "web-vitals": "^1.0.1"
+    "typescript": "^4.1.2"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -47,7 +46,6 @@
     ]
   },
   "devDependencies": {
-    "@babel/preset-react": "^7.14.5",
     "@types/react": "^17.0.14",
     "@types/react-router-dom": "^5.1.8",
     "@types/styled-components": "^5.1.11",
