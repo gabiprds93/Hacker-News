@@ -15,7 +15,8 @@ const FavoritesProvider: React.FC<Props> = (props) => {
   const [favorites, setFavorites] = useState<News[]>([]);
 
   useEffect(() => {
-    const storedFavorites = getLocalStorage("favorites");
+    const storedFavorites: News[] | undefined = getLocalStorage("favorites");
+
     if (storedFavorites) {
       setFavorites(storedFavorites);
     }
