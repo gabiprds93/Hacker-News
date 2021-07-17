@@ -1,3 +1,16 @@
+# About Proyect
+
+In this project you can find millions of articles and comments related to the world of technology, filtering them by the following technologies:
+
+- Angular
+- ReactJs
+- VueJs
+
+You can go directly to the news by clicking on each of them. You can also mark your favorites by clicking on the heart.
+
+React was used to build this project and [Hackers News public API](https://codigofacilito.com) is being consumed.
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
