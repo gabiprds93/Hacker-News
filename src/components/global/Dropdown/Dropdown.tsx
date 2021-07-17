@@ -1,8 +1,8 @@
-import React from "react";
 import { Dropdown as DropdownUI } from "semantic-ui-react";
 
-import Styles from "./Dropdown.styles";
+//Types, Styles
 import { DropdownProps as Props } from "./Dropdown.types";
+import Styles from "./Dropdown.styles";
 
 const Dropdown: React.FC<Props> = (props) => {
   return (

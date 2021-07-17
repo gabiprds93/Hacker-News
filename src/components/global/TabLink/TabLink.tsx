@@ -1,7 +1,8 @@
 import { Link, useRouteMatch } from "react-router-dom";
 
-import Styles from "./TabLink.styles";
+//Types, Styles
 import { TabLinkProps as Props } from "./TabLink.types";
+import Styles from "./TabLink.styles";
 
 const TabLink: React.FC<Props> = (props) => {
   const { label, to, activeOnlyWhenExact } = props;

@@ -1,13 +1,16 @@
 import { useEffect, useState } from "react";
 import { DropdownProps } from "semantic-ui-react";
 
-import Styles from "./AllHackerNews.styles";
-import { AllHackerNewsProps as Props } from "./AllHackerNews.types";
-import { options } from "./AllHackerNews.helpers";
+//Components
 import Header from "../../global/Header/Header";
 import Tabs from "../../global/Tabs/Tabs";
 import Dropdown from "../../global/Dropdown/Dropdown";
 import NewsList from "../../global/NewsList/NewsList";
+// Helpers
+import { options } from "./AllHackerNews.helpers";
+//Types, Styles
+import { AllHackerNewsProps as Props } from "./AllHackerNews.types";
+import Styles from "./AllHackerNews.styles";
 
 const AllHackerNews: React.FC<Props> = (props) => {
   const defaultValue = options[0].value;
@@ -15,6 +18,11 @@ const AllHackerNews: React.FC<Props> = (props) => {
   const selectedQuery = storedQuery ?? defaultValue;
   const [query, setQuery] = useState(selectedQuery);
 
+  /**  Function to handle change of dropdown.
+   *
+   * @param {React.SyntheticEvent<HTMLElement, Event>} event Event that is triggered when there is a change
+   * @param {DropdownProps} data Data of dropdown properties
+   */
   const handleChange = (
     event: React.SyntheticEvent<HTMLElement, Event>,
     data: DropdownProps

@@ -1,9 +1,12 @@
-import Styles from "./FavoritesHackerNews.styles";
-import { FavoritesHackerNewsProps as Props } from "./FavoritesHackerNews.types";
+// Components
 import Header from "../../global/Header/Header";
 import Tabs from "../../global/Tabs/Tabs";
 import NewsList from "../../global/NewsList/NewsList";
+// Context
 import useFavorites from "../../../contexts/favorites/favorites.hooks";
+// Types, Styles
+import { FavoritesHackerNewsProps as Props } from "./FavoritesHackerNews.types";
+import Styles from "./FavoritesHackerNews.styles";
 
 const FavoritesHackerNews: React.FC<Props> = (props) => {
   const { favorites } = useFavorites();

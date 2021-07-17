@@ -1,6 +1,7 @@
 // News services
 import axios from "axios";
 
+// Types
 import { Params } from "./news.service.types";
 import { NewsData } from "../../types/news.type";
 

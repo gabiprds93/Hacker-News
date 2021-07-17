@@ -1,5 +1,4 @@
 // Interfaces and types from context Favorites
-
 import { News } from "../../types/news.type";
 
 // Provider Props

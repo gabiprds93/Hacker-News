@@ -1,6 +1,8 @@
 import { useContext } from "react";
 
+// Context
 import { FavoritesContext } from "./favorites.context";
+// Types
 import { FavoritesProviderValue } from "./favorites.context.types";
 
 const useFavorites = () => {

@@ -1,10 +1,12 @@
 import React, { createContext, useEffect, useMemo, useState } from "react";
 import { ContextDevTool } from "react-context-devtool";
-import { News } from "../../types/news.type";
-import { getLocalStorage } from "../../utils/common.utils";
 
+// Utils
+import { getLocalStorage } from "../../utils/common.utils";
+// Types
 import { FavoritesProviderProps as Props } from "./favorites.context.types";
 import { FavoritesProviderValue } from "./favorites.context.types";
+import { News } from "../../types/news.type";
 
 // @ts-ignore
 export const FavoritesContext = createContext<FavoritesProviderValue>();

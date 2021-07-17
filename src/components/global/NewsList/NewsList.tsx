@@ -1,10 +1,13 @@
 import { useCallback, useEffect, useRef } from "react";
 
-import Styles from "./NewsList.styles";
-import { NewsListProps as Props } from "./NewsList.types";
+// Components
 import NewsItem from "../NewsItem/NewsItem";
+// Services
 import { useFetchNews } from "../../../services/news/news.service.hooks";
+//Types, Styles
+import { NewsListProps as Props } from "./NewsList.types";
 import { News } from "../../../types/news.type";
+import Styles from "./NewsList.styles";
 
 const NewsList: React.FC<Props> = (props) => {
   const { query, news } = props;
@@ -19,8 +22,12 @@ const NewsList: React.FC<Props> = (props) => {
     refetch,
   } = useFetchNews(query);
 
+  /** Function that triggers to bring more news
+   *
+   * @param {HTMLDivElement} item Referenced element
+   */
   const triggerRef = useCallback(
-    (item) => {
+    (item: HTMLDivElement) => {
       if (isFetchingNextPage) return;
       if (observer.current) observer.current.disconnect();
 
@@ -35,6 +42,10 @@ const NewsList: React.FC<Props> = (props) => {
     [fetchNextPage, hasNextPage, isFetchingNextPage]
   );
 
+  /** Function to get an array of news
+   *
+   * @returns { News[]} Returns array of news
+   */
   const getNewsArray = useCallback(() => {
     return newsData?.pages.reduce<News[]>((acc, page) => {
       if (!page.hits) {
