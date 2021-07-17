@@ -12,7 +12,7 @@ const NewItemStyled = styled.a<Props>`
     margin-bottom: 3.2rem;
 
     &:hover {
-      opacity: 0.4;
+      opacity: 0.5;
     }
   }
 
