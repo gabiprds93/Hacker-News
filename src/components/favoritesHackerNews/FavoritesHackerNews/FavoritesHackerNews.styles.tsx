@@ -12,11 +12,17 @@ const FavoritesHackerNewsStyled = styled.div<Props>`
   .FavoritesHackerNews {
     &__main {
       flex: 1;
-      padding: 0 1.6rem;
-    }
+      padding: 0 6.4rem 3.6rem;
 
-    &__dropdown {
-      width: 24rem;
+      @media screen and (min-width: 1441px) {
+        margin: auto;
+        padding: 0 0 3.6rem;
+        width: 75%;
+      }
+
+      @media screen and (max-width: 768px) {
+        padding: 0 1.6rem 3.6rem;
+      }
     }
   }
 `;

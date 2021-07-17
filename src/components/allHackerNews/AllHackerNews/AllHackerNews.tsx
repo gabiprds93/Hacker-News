@@ -28,20 +28,24 @@ const AllHackerNews: React.FC<Props> = (props) => {
 
   return (
     <Styles className="AllHackerNews">
-      <Header />
+      <header>
+        <Header />
+      </header>
 
       <main className="AllHackerNews__main">
-        <Tabs />
+        <div className="AllHackerNews__main__wrapper-options">
+          <Tabs />
 
-        <div className="AllHackerNews__dropdown">
-          <Dropdown
-            placeholder="Select your news"
-            fluid
-            selection
-            options={options}
-            value={query}
-            onChange={handleChange}
-          />
+          <div className="AllHackerNews__dropdown">
+            <Dropdown
+              placeholder="Select your news"
+              fluid
+              selection
+              options={options}
+              value={query}
+              onChange={handleChange}
+            />
+          </div>
         </div>
 
         <NewsList query={query} />

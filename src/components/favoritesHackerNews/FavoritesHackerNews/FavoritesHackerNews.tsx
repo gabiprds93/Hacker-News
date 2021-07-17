@@ -10,7 +10,9 @@ const FavoritesHackerNews: React.FC<Props> = (props) => {
 
   return (
     <Styles className="FavoritesHackerNews">
-      <Header />
+      <header>
+        <Header />
+      </header>
 
       <main className="FavoritesHackerNews__main">
         <Tabs />

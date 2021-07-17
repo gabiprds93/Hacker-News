@@ -7,7 +7,9 @@ const NewItemStyled = styled.a<Props>`
     border-radius: 0.6rem;
     border: solid 1px var(--palette-borderNewItem);
     display: flex;
+    height: 9.6rem;
     justify-content: space-between;
+    margin-bottom: 3.2rem;
 
     &:hover {
       opacity: 0.4;
@@ -16,8 +18,11 @@ const NewItemStyled = styled.a<Props>`
 
   .NewsItem {
     &__info {
+      display: flex;
+      flex-direction: column;
       flex: 1;
-      padding: 2.4rem;
+      justify-content: center;
+      padding: 0 2.4rem;
 
       &__top {
         align-items: center;
@@ -32,8 +37,13 @@ const NewItemStyled = styled.a<Props>`
       }
 
       &__title {
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
         color: var(--palette-titleText);
+        display: -webkit-box;
         font-size: 1.4rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
     }
 

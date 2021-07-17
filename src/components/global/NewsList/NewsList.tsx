@@ -58,6 +58,8 @@ const NewsList: React.FC<Props> = (props) => {
     <Styles className="NewsList">
       {!news ? (
         <>
+          {isLoading ? <div>Loading news!</div> : null}
+
           {isSuccess
             ? newsArray?.map((newsItem, index) => {
                 return <NewsItem key={index} newsItem={newsItem} />;
@@ -67,8 +69,6 @@ const NewsList: React.FC<Props> = (props) => {
           <div ref={triggerRef}>
             {isFetchingNextPage ? "Loading more..." : ""}
           </div>
-
-          {isLoading ? <div>Loading news!</div> : null}
 
           {!hasNextPage && !isLoading ? (
             <div>You have scrolled through all the new</div>
