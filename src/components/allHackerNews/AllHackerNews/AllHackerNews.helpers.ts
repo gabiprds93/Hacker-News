@@ -9,6 +9,7 @@ export const options = [
     value: "angular",
     image: {
       src: angularImage,
+      alt: "angular icon",
     },
   },
   {
@@ -17,6 +18,7 @@ export const options = [
     value: "reactjs",
     image: {
       src: reactImage,
+      alt: "reactjs icon",
     },
   },
   {
@@ -25,6 +27,7 @@ export const options = [
     value: "vuejs",
     image: {
       src: vueImage,
+      alt: "vuejs icon",
     },
   },
 ];

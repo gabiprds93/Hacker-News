@@ -38,7 +38,7 @@ const NewItemStyled = styled.a<Props>`
 
       &__title {
         -webkit-box-orient: vertical;
-        -webkit-line-clamp: 3;
+        -webkit-line-clamp: 2;
         color: var(--palette-titleText);
         display: -webkit-box;
         font-size: 1.4rem;

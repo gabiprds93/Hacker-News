@@ -65,7 +65,9 @@ const NewsItem: React.FC<Props> = (props) => {
           <span>{`${dateFormat} by ${author}`}</span>
         </div>
 
-        <span className="NewsItem__info__title">{story_title}</span>
+        <span className="NewsItem__info__title" title={story_title}>
+          {story_title}
+        </span>
       </div>
 
       <div className="NewsItem__favorite">
